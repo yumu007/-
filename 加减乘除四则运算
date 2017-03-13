@@ -1,0 +1,331 @@
+package 加减乘除;
+
+import java.util.Random;
+import java.util.Scanner;
+
+class number{
+	static int a;
+	static int b;
+	static int c;
+	static int d;
+	static char f;
+	static int x;
+	static int s;
+	public static int rand(){
+		int n = 0;
+    	Random ra =new Random();	
+    	int a=(int)(Math.random()*(s-x+1)+x);
+    	{n=a;}
+		return n;
+    }
+    public static void zhen(){
+    	Random a1 =new Random();int a2=a1.nextInt(10)+1;
+    	Random b1 =new Random();int b2=b1.nextInt(10)+1; 
+    	Random c1 =new Random();int c2=c1.nextInt(10)+1;
+    	Random d1 =new Random();int d2=d1.nextInt(10)+1; 	
+    	if(a2>=b2||c2>=d2){
+    		zhen();
+    	}
+    	else{
+        a=a2;b=b2;
+        c=c2;d=d2;;
+    	}		
+    }
+    public static int GCD(int a, int b) {
+    	int max = Math.max(a, b);
+    	int min = Math.min(a, b);
+    	if(min == 0)
+    	return max;
+    	return GCD(min, max % min);
+    	}
+	public static char fuhao(){
+    	char n = 0;
+    	Random ra =new Random();	
+    	int c=ra.nextInt(100)+1;
+    	if(c>=0&&c<25){ n = '+';}
+    	if(c<50&&c>=25){ n = '-';}
+    	if(c>=50&&c<75){ n = '*';}
+    	if(c>=75&&c<100){ n = '/';}	
+		return n;	    
+    }  
+	 public static void zhengshow(){  
+		 a=rand();b=rand();f=fuhao();
+		 System.out.print(a);System.out.print(f);System.out.println(b+"=");
+		 double n = 0;
+	    	if(f=='+'){
+	    		n= a+b;
+	    		System.out.println(n);
+		    	System.out.println("");
+	    	}
+	    	if(f=='-'){
+	    		n= a-b;
+	    		System.out.println(n);
+		    	System.out.println("");
+		    	
+	    	}
+	    	if(f=='*'){
+	    		n= a*b;
+	    		System.out.println(n);
+		    	System.out.println("");
+	    	}
+	    	if(f=='/'){
+	    		int g = GCD(a,b);
+	    		 System.out.println(a/g+"/"+b/g);
+	    		 System.out.println("");
+	    	}
+	    	
+	 }
+	 public static void zhengwufushu(){  
+		 a=rand();b=rand();f=fuhao();
+		 System.out.print(a);System.out.print(f);System.out.println(b+"=");
+		 double n = 0;
+	    	if(f=='+'){
+	    		n= a+b;
+	    		System.out.println(n);
+		    	System.out.println("");
+	    	}
+	    	if(f=='-'){
+	    		n= a-b;
+	    		System.out.println(n);
+		    	System.out.print("");
+		    	if(n>0){
+		    		System.out.println("有负数");
+		    		zhengwufushu();
+		    	}
+	    	}
+	    	if(f=='*'){
+	    		n= a*b;
+	    		System.out.println(n);
+		    	System.out.println("");
+	    	}
+	    	if(f=='/'){
+	    		int g = GCD(a,b);
+	    		 System.out.println(a/g+"/"+b/g);
+	    		 System.out.println("");
+	    	}
+	    	
+	 }
+	 public static void zhengwuyushu(){  
+		 a=rand();b=rand();f=fuhao();
+		 System.out.print(a);System.out.print(f);System.out.println(b+"=");
+		 double n = 0;
+	    	if(f=='+'){
+	    		n= a+b;
+	    		System.out.println(n);
+		    	System.out.println("");
+	    	}
+	    	if(f=='-'){
+	    		n= a-b;
+	    		System.out.println(n);
+		    	System.out.println("");
+		    	
+	    	}
+	    	if(f=='*'){
+	    		n= a*b;
+	    		System.out.println(n);
+		    	System.out.println("");
+	    	}
+	    	if(f=='/'){
+	    		int g = GCD(a,b);
+	    		 System.out.println(a/g+"/"+b/g);
+	    		 System.out.println("");
+	    		 if((a<b&&g!=a)||(a>b&&g!=b)){
+	    			 zhengwuyushu();
+	    		 }
+	    	}
+	    	
+	 }
+	 public static void zhengwuchengchu(){  	
+	    	char f = fuhao();
+	    	if(f!='*'&&f!='/')
+	    	{
+	    	a=rand();	b=rand();
+	    	System.out.print(a);System.out.print(f);System.out.println(b+"=");
+	    	double n = 0;
+	    	if(f=='+'){
+	    		n= a+b;
+	    	}
+	    	if(f=='-'){
+	    		n= a-b;
+	    		
+	    	}
+
+	    	System.out.println(n);
+	    	System.out.println("");
+	    	}
+	    	else{
+	    		zhengwuchengchu();
+	    	}
+	    }
+	 public static void zhengwuchengchufushu(){  	
+	    	char f = fuhao();
+	    	if(f!='*'&&f!='/')
+	    	{
+	    	a=rand();	b=rand();
+	    	System.out.print(a);System.out.print(f);System.out.println(b+"=");
+	    	double n = 0;
+	    	if(f=='+'){
+	    		n= a+b;
+	    	}
+	    	if(f=='-'){
+	    		n= a-b;
+	    		if(n<0){
+		    		System.out.println("有负数");
+		    		zhengwuchengchufushu();
+		    	}
+	    	}
+
+	    	System.out.println(n);
+	    	System.out.println("");
+	    	}
+	    	else{
+	    		zhengwuchengchufushu();
+	    	}
+	    }
+	 public static void zhenshow(){  
+		zhen();f=fuhao();
+
+		 System.out.print("("+a+"/"+b+")");System.out.print(f);System.out.println("("+c+"/"+d+")"+"=");
+		
+		 double n = 0;
+	    	if(f=='+'){
+	    		int g = GCD(((a*d)+(b*c)),(b*d));
+	    		 System.out.println(((a*d)+(b*c))/g+"/"+(b*d)/g);
+	    		 System.out.println("");
+	    	}
+	    	if(f=='-'){
+	    		if((a*d)==(b*c)){
+	    			System.out.println("0");
+	    			 System.out.println("");
+	    		}
+	    		else{
+	    		int g = GCD(Math.abs(((a*d)-(b*c))),(b*d));
+	    		 System.out.println(((a*d)-(b*c))/g+"/"+(b*d)/g);
+	    		 System.out.println("");
+	    		}
+	    	}
+	    	if(f=='*'){
+	    		 int g = GCD((a*c),(b*d));
+	    		 System.out.println((a*c)/g+"/"+(b*d)/g);
+	    		 System.out.println("");
+	    	}
+	    	if(f=='/'){
+	
+	    		 int g = GCD((a*d),(b*c));
+	    		 System.out.println((a*d)/g+"/"+(b*c)/g);
+	    		 System.out.println("");
+	    	}
+	    	
+	 }
+	 public static void zhenwuchengchu(){  
+			zhen();f=fuhao();
+			if(f!='*'&&f!='/')
+	    	{
+			 System.out.print("("+a+"/"+b+")");System.out.print(f);System.out.println("("+c+"/"+d+")"+"=");
+			
+			 double n = 0;
+			 if(f=='+'){
+		    		int g = GCD(((a*d)+(b*c)),(b*d));
+		    		 System.out.println(((a*d)+(b*c))/g+"/"+(b*d)/g);
+		    		 System.out.println("");
+		    	}
+		    	if(f=='-'){
+		    		if((a*d)==(b*c)){
+		    			System.out.println(0);
+		    			 System.out.println("");
+		    		}
+		    		else{
+		    		int g = GCD(Math.abs(((a*d)-(b*c))),(b*d));
+		    		 System.out.println(((a*d)-(b*c))/g+"/"+(b*d)/g);
+		    		 System.out.println("");
+		    		}
+		    	}
+		    	
+		    	}
+			else{
+				zhenwuchengchu();
+				
+			}
+		 }
+	 public static void fanwei(){
+		    Scanner in = new Scanner(System.in);
+		    System.out.println("请输入式子的上限：");
+			number.s=in.nextInt();
+			System.out.println("请输入式子的下限：");
+			number.x=in.nextInt();
+	 }
+	
+	 }
+
+public class Updata {
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		System.out.println("请输入显示式子的个数：");
+		int m = in.nextInt();
+		System.out.println("1.式子只有整数");
+		System.out.println("2.式子只有真分数");
+		System.out.println("请输入要执行的操作：");
+		String[] strArray=new String[m];
+     	int type = in.nextInt();
+		switch(type){
+		case 1:{
+			number.fanwei();
+			System.out.println("是否有乘除法：(1有0没有)");
+			int n = in.nextInt();
+            if(n==1){
+            	System.out.println("是否有负数：(1有0没有)");
+			    int n1 = in.nextInt();
+			    if(n1==1){
+			for(int i = 0;i<m;i++){
+			number.zhengshow();	
+			
+			}
+			    }
+			    if(n1==0){
+					for(int i = 0;i<m;i++){
+					number.zhengwufushu();	
+					
+					}
+					    }
+			}
+            if(n==0){
+            	System.out.println("是否有负数：(1有0没有)");
+			    int n1 = in.nextInt();
+			    if(n1==1){
+			for(int i = 0;i<m;i++){
+			number.zhengwuchengchu();	
+			
+			}
+			    }
+			    if(n1==0){
+					for(int i = 0;i<m;i++){
+					number.zhengwuchengchufushu();	
+					
+					}
+					    }
+    			}
+			} break;
+		
+		case 2:{
+			System.out.println("是否有乘除法：(1有0没有)");
+			int n = in.nextInt();
+            if(n==1){
+			for(int i = 0;i<m;i++){
+			
+			number.zhenshow();	
+			}
+			}
+            if(n==0){
+    			for(int i = 0;i<m;i++){
+    			
+    			number.zhenwuchengchu();	
+    		
+    			}
+    		
+    			}
+			} break;
+		
+		
+		}
+	}
+}

@@ -1,0 +1,186 @@
+package 加减乘除;
+import java.util.Random;
+import java.util.Scanner;
+class jisuan{
+static double z = 0;
+	public static double rand(){
+		double n = 0;
+    	Random ra =new Random();	
+    	int a=ra.nextInt(100)+1;
+    	{System.out.print(a);
+    	n=a;}
+		return n;
+	
+    }
+    public static char fuhao(){
+    	char n = 0;
+    	Random ra =new Random();	
+    	int c=ra.nextInt(100)+1;
+    	if(c>=0&&c<25){System.out.print("+"); n = '+';}
+    	if(c<50&&c>=25){System.out.print("-"); n = '-';}
+    	if(c>=50&&c<75){System.out.print("*"); n = '*';}
+    	if(c>=75&&c<100){System.out.print("/"); n = '/';}	
+		return n;	    
+    }  
+    public static double zhen(){
+    	double n = 0;
+    	Random b =new Random();double b1=b.nextInt(10)+1;
+    	Random c =new Random();double c1=c.nextInt(10)+1; 	
+    	if(b1>=c1||b1==c1){
+    		zhen();
+    	}
+    	else{
+        System.out.print(b1+"/");System.out.print(c1);
+        n=b1/c1;
+        
+    	}
+    	
+		return n;
+	
+		
+    }
+    public static double zhengzhen(){
+    	double n = 0;
+    	Random a =new Random();double a1=a.nextInt(10)+1;
+    	Random b =new Random();double b1=b.nextInt(10)+1;
+    	Random c =new Random();double c1=c.nextInt(10)+1; 	
+    	if(b1>c1){
+    		zhengzhen();
+    	}
+    	else if(b1==c1){
+    		System.out.print(a1);
+    		n=a1;
+    		}
+    	else{	
+            System.out.print(b1+"/");System.out.print(c1);
+            n=b1/c1;
+    	}
+		return n;
+    }
+    public static void zhengshow(){  	
+    	double a =rand();char c = fuhao();double b = rand();System.out.println("=");
+    	double n = 0;
+    	if(c=='+'){
+    		n= a+b;
+    	}
+    	if(c=='-'){
+    		n= a-b;
+    	}
+    	if(c=='*'){
+    		n= a*b;
+    	}
+    	if(c=='/'){
+    		n= a/b;
+    	}
+    	System.out.println(n);
+    	System.out.println("");
+    }
+    public static void zhengshowwuchegnchu(){  	
+    	char c = fuhao();
+    	if(fuhao()!='*'||fuhao()!='/')
+    	{
+    	double a =rand();double b = rand();System.out.println("=");
+    	double n = 0;
+    	if(c=='+'){
+    		n= a+b;
+    	}
+    	if(c=='-'){
+    		n= a-b;
+    	}
+    	if(c=='*'){
+    		n= a*b;
+    	}
+    	if(c=='/'){
+    		n= a/b;
+    	}
+    	System.out.println(n);
+    	System.out.println("");
+    	}
+    	else{
+    		zhengshowwuchegnchu();
+    	}
+    }
+    public static void zhenshow(){
+    	
+    	double a =zhen();char c = fuhao();double b = zhen();System.out.println("=");
+    	
+    	double n = 0;
+    	if(c=='+'){
+    		n= a+b;
+    	}
+    	if(c=='-'){
+    		n= a-b;
+    	}
+    	if(c=='*'){
+    		n= a*b;
+    	}
+    	if(c=='/'){
+    		n= a/b;
+    	}
+    	System.out.println(n);
+    	System.out.println("");
+        
+    }
+    public static void zhengzhenshow(){
+    	
+    	double a =zhengzhen();char c = fuhao();double b = zhengzhen();System.out.println("=");
+    	double n = 0;
+    	if(c=='+'){
+    		n= a+b;
+    	}
+    	if(c=='-'){
+    		n= a-b;
+    	}
+    	if(c=='*'){
+    		n= a*b;
+    	}
+    	if(c=='/'){
+    		n= a*(1/b);
+    	}
+    	System.out.println(n);
+    	System.out.println("");
+        
+    }
+
+}
+public class test {
+	public static void main(String[] args){
+		Scanner in = new Scanner(System.in);
+		System.out.println("请输入显示式子的个数：");
+		int m = in.nextInt();
+		System.out.println("1.式子只有整数");
+		System.out.println("2.式子只有真分数");
+		System.out.println("请输入要执行的操作：");
+		String[] strArray=new String[m];
+     	int type = in.nextInt();
+		switch(type){
+		case 1:{
+			System.out.println("是否有乘除法：(1有0没有)");
+			int n = in.nextInt();
+            if(n==1){
+			for(int i = 0;i<m;i++){
+			jisuan.zhengshow();	
+			}
+			}
+            if(n==0){
+    			for(int i = 0;i<m;i++){
+    			jisuan.zhengshowwuchegnchu();	
+    		
+    			}
+    		
+    			}
+			} break;
+		
+		case 2:{
+			for(int i = 0;i<m;i++){
+			jisuan.zhenshow();
+			}
+			} break;
+		
+		
+		}
+	}
+	}
+
+
+	
